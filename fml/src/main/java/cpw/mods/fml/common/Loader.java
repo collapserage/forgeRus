@@ -479,8 +479,10 @@ public class Loader
      */
     public void loadMods()
     {
-        progressBar = ProgressManager.push("Loading", 7);
-        progressBar.step("Constructing Mods");
+        cpw.mods.fml.common.registry.LanguageRegistry.instance().loadLanguagesFor(new cpw.mods.fml.common.FMLContainer(), Side.CLIENT);
+        net.minecraft.client.Minecraft.getMinecraft().refreshResources(); // fix for loading languages from forge.jar early enough to translate progress bar and mod loading errors
+        progressBar = ProgressManager.push(net.minecraft.client.resources.I18n.format("adv.loader.push.loading"), 7);
+        progressBar.step(net.minecraft.client.resources.I18n.format("adv.loader.constructingMods"));
         initializeLoader();
         mods = Lists.newArrayList();
         namedMods = Maps.newHashMap();
@@ -540,7 +542,7 @@ public class Loader
         {
             FMLLog.fine("No user mod signature data found");
         }
-        progressBar.step("Initializing mods Phase 1");
+        progressBar.step(net.minecraft.client.resources.I18n.format("adv.loader.initializingModsPhase1"));
         modController.transition(LoaderState.PREINITIALIZATION, false);
     }
 
@@ -557,7 +559,7 @@ public class Loader
         ObjectHolderRegistry.INSTANCE.applyObjectHolders();
         ItemStackHolderInjector.INSTANCE.inject();
         modController.transition(LoaderState.INITIALIZATION, false);
-        progressBar.step("Initializing Minecraft Engine");
+        progressBar.step(net.minecraft.client.resources.I18n.format("adv.loader.initializingMinecraftEngine"));
     }
 
     private void disableRequestedMods()
@@ -732,22 +734,22 @@ public class Loader
 
     public void initializeMods()
     {
-        progressBar.step("Initializing mods Phase 2");
+        progressBar.step(net.minecraft.client.resources.I18n.format("adv.loader.initializingModsPhase2"));
         // Mod controller should be in the initialization state here
         modController.distributeStateMessage(LoaderState.INITIALIZATION);
-        progressBar.step("Initializing mods Phase 3");
+        progressBar.step(net.minecraft.client.resources.I18n.format("adv.loader.initializingModsPhase3"));
         modController.transition(LoaderState.POSTINITIALIZATION, false);
         modController.distributeStateMessage(FMLInterModComms.IMCEvent.class);
         ItemStackHolderInjector.INSTANCE.inject();
         modController.distributeStateMessage(LoaderState.POSTINITIALIZATION);
-        progressBar.step("Finishing up");
+        progressBar.step(net.minecraft.client.resources.I18n.format("adv.loader.finishingUp"));
         modController.transition(LoaderState.AVAILABLE, false);
         modController.distributeStateMessage(LoaderState.AVAILABLE);
         GameData.freezeData();
         // Dump the custom registry data map, if necessary
         GameData.dumpRegistry(minecraftDir);
         FMLLog.info("Forge Mod Loader has successfully loaded %d mod%s", mods.size(), mods.size() == 1 ? "" : "s");
-        progressBar.step("Completing Minecraft initialization");
+        progressBar.step(net.minecraft.client.resources.I18n.format("adv.loader.completingMinecraftInitialization"));
     }
 
     public ICrashCallable getCallableCrashInformation()
