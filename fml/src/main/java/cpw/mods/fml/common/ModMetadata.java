@@ -62,7 +62,12 @@ public class ModMetadata
 
     public String getChildModCountString()
     {
-        return String.format("%d child mod%s", childMods.size(), childMods.size() != 1 ? "s" : "");
+        string params[] = {
+                net.minecraft.client.resources.I18n.format("adv.fml.format.child.1", childMods.size())
+                net.minecraft.client.resources.I18n.format("adv.fml.format.child.2", childMods.size())
+                net.minecraft.client.resources.I18n.format("adv.fml.format.child.3", childMods.size())
+        };
+        return net.minecraftforge.client.GuiIngameForge.addDeclension(params);
     }
 
     public String getAuthorList()
