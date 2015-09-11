@@ -718,12 +718,12 @@ public class GuiIngameForge extends GuiIngame
         post(TEXT);
     }
 
-    public static String addDeclension(String[] translate)
+    public static String addDeclension(int number, String[] translate)
     {
         String s = "";
-        if (translate[0] % 10 == 1) s = translate[1];
-        if (translate[0] % 10 >= 2 && translate[0] % 10 <= 4) s = translate[2];
-        if (translate[0] % 10 >= 5 || translate[0] % 10 == 0 || (translate[0] >= 11 && translate[0] <= 14)) s = translate[3];
+        if (number % 10 == 1) s = translate[0];
+        if (number % 10 >= 2 && number % 10 <= 4) s = translate[1];
+        if (number % 10 >= 5 || number % 10 == 0 || (number >= 11 && number <= 14)) s = translate[2];
         return s;
     }
 
@@ -733,12 +733,11 @@ public class GuiIngameForge extends GuiIngame
             int modCount = cpw.mods.fml.common.Loader.instance().getModList().size();
             int aModCount = cpw.mods.fml.common.Loader.instance().getActiveModList().size();
             String params[] = {
-                modCount,
                 I18n.format("adv.fml.format.mod.1", modCount, aModCount),
                 I18n.format("adv.fml.format.mod.2", modCount, aModCount),
                 I18n.format("adv.fml.format.mod.3", modCount, aModCount)
             };
-            s = addDeclension(params);
+            s = addDeclension(modCount, params);
         } else if (s.contains("Optifine")) s = s.replace("OptiFine_", "").replace("U", "Ultra").replace("_", " ");
         return s;
     }
