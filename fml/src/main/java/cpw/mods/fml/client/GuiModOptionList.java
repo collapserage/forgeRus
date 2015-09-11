@@ -39,9 +39,9 @@ public class GuiModOptionList extends GuiScrollingList {
     @Override
     protected void drawSlot(int var1, int var2, int var3, int var4, Tessellator var5)
     {
-        this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth("Test 1", listWidth - 10), this.left + 3 , var3 + 2, 0xFF2222);
-        this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth("TEST 2", listWidth - 10), this.left + 3 , var3 + 12, 0xFF2222);
-        this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth("DISABLED", listWidth - 10), this.left + 3 , var3 + 22, 0xFF2222);
+        this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(net.minecraft.client.resources.I18n.format("adv.fml.modOptions.1"), listWidth - 10), this.left + 3 , var3 + 2, 0xFF2222);
+        this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(net.minecraft.client.resources.I18n.format("adv.fml.modOptions.2"), listWidth - 10), this.left + 3 , var3 + 12, 0xFF2222);
+        this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(net.minecraft.client.resources.I18n.format("adv.fml.modOptions.3"), listWidth - 10), this.left + 3 , var3 + 22, 0xFF2222);
     }
 
 }
