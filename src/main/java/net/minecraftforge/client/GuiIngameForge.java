@@ -638,7 +638,7 @@ public class GuiIngameForge extends GuiIngame
         {
             mc.mcProfiler.startSection("debug");
             GL11.glPushMatrix();
-            left.add("Minecraft " + MC_VERSION + " (" + this.mc.debug + ")");
+            left.add("Minecraft " + MC_VERSION + " (" + I18n.format("adv.debug.info", this.mc.debug.replaceAll("[^-?0-9]+", " ").trim().split(" ")[0], this.mc.debug.replaceAll("[^-?0-9]+", " ").trim().split(" ")[1] + ")");
             left.add(mc.debugInfoRenders());
             left.add(mc.getEntityDebug());
             left.add(mc.debugInfoEntities());
