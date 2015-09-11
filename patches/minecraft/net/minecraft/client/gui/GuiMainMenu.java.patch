@@ -8,11 +8,58 @@
  import org.apache.commons.io.Charsets;
  import org.apache.logging.log4j.LogManager;
  import org.apache.logging.log4j.Logger;
-@@ -507,6 +508,7 @@
+@@ -144,23 +145,23 @@
+ 
+         if (calendar.get(2) + 1 == 11 && calendar.get(5) == 9)
+         {
+-            this.field_73975_c = "Happy birthday, ez!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.ez");
+         }
+         else if (calendar.get(2) + 1 == 6 && calendar.get(5) == 1)
+         {
+-            this.field_73975_c = "Happy birthday, Notch!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.notch");
+         }
+         else if (calendar.get(2) + 1 == 12 && calendar.get(5) == 24)
+         {
+-            this.field_73975_c = "Merry X-mas!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.xmas");
+         }
+         else if (calendar.get(2) + 1 == 1 && calendar.get(5) == 1)
+         {
+-            this.field_73975_c = "Happy new year!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.newYear");
+         }
+         else if (calendar.get(2) + 1 == 10 && calendar.get(5) == 31)
+         {
+-            this.field_73975_c = "OOoooOOOoooo! Spooky!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.halloween");
+         }
+ 
+         boolean flag = true;
+@@ -197,7 +198,7 @@
+         this.field_146292_n.add(new GuiButton(1, this.field_146294_l / 2 - 100, p_73969_1_, I18n.func_135052_a("menu.singleplayer", new Object[0])));
+         this.field_146292_n.add(new GuiButton(2, this.field_146294_l / 2 - 100, p_73969_1_ + p_73969_2_ * 1, I18n.func_135052_a("menu.multiplayer", new Object[0])));
+         GuiButton realmsButton = new GuiButton(14, this.field_146294_l / 2 - 100, p_73969_1_ + p_73969_2_ * 2, I18n.func_135052_a("menu.online", new Object[0]));
+-        GuiButton fmlModButton = new GuiButton(6, this.field_146294_l / 2 - 100, p_73969_1_ + p_73969_2_ * 2, "Mods");
++        GuiButton fmlModButton = new GuiButton(6, this.field_146294_l / 2 - 100, p_73969_1_ + p_73969_2_ * 2, I18n.func_135052_a("adv.fml.button.mods"));
+         fmlModButton.field_146128_h = this.field_146294_l / 2 + 2;
+         realmsButton.field_146120_f = 98;
+         fmlModButton.field_146120_f = 98;
+@@ -501,13 +502,14 @@
+         List<String> brandings = Lists.reverse(FMLCommonHandler.instance().getBrandings(true));
+         for (int i = 0; i < brandings.size(); i++)
+         {
+-            String brd = brandings.get(i);
++            String brd = net.minecraftforge.client.GuiIngameForge.translateBrandings(brandings.get(i));
+             if (!Strings.isNullOrEmpty(brd))
+             {
                  this.func_73731_b(this.field_146289_q, brd, 2, this.field_146295_m - ( 10 + i * (this.field_146289_q.field_78288_b + 1)), 16777215);
              }
          }
+-        String s1 = "Copyright Mojang AB. Do not distribute!";
 +        ForgeHooksClient.renderMainMenu(this, field_146289_q, field_146294_l, field_146295_m);
-         String s1 = "Copyright Mojang AB. Do not distribute!";
++        String s1 = I18n.func_135052_a("adv.other.mojang");
          this.func_73731_b(this.field_146289_q, s1, this.field_146294_l - this.field_146289_q.func_78256_a(s1) - 2, this.field_146295_m - 10, -1);
  
+         if (this.field_92025_p != null && this.field_92025_p.length() > 0)
