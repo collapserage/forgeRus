@@ -650,8 +650,8 @@ public class GuiIngameForge extends GuiIngame
             long free = Runtime.getRuntime().freeMemory();
             long used = total - free;
 
-            right.add("Used memory: " + used * 100L / max + "% (" + used / 1024L / 1024L + "MB) of " + max / 1024L / 1024L + "MB");
-            right.add("Allocated memory: " + total * 100L / max + "% (" + total / 1024L / 1024L + "MB)");
+            right.add(I18n.format("adv.debug.used", used * 100L / max, used / 1024L / 1024L, max / 1024L / 1024L));
+            right.add(I18n.format("adv.debug.allocated", total * 100L / max, total / 1024L / 1024L));
 
             int x = MathHelper.floor_double(mc.thePlayer.posX);
             int y = MathHelper.floor_double(mc.thePlayer.posY);
@@ -660,16 +660,16 @@ public class GuiIngameForge extends GuiIngame
             int heading = MathHelper.floor_double((double)(mc.thePlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
             left.add(String.format("x: %.5f (%d) // c: %d (%d)", mc.thePlayer.posX, x, x >> 4, x & 15));
-            left.add(String.format("y: %.3f (feet pos, %.3f eyes pos)", mc.thePlayer.boundingBox.minY, mc.thePlayer.posY));
+            left.add(String.format("y: %.3f (" + I18n.format("adv.debug.feet") + ", %.3f " + I18n.format("adv.debug.eyes") + ")", mc.thePlayer.boundingBox.minY, mc.thePlayer.posY));
             left.add(String.format("z: %.5f (%d) // c: %d (%d)", mc.thePlayer.posZ, z, z >> 4, z & 15));
-            left.add(String.format("f: %d (%s) / %f", heading, Direction.directions[heading], MathHelper.wrapAngleTo180_float(yaw)));
+            left.add(String.format("f: %d (%s) / %f", heading, I18n.format("adv.direction." + Direction.directions[heading].toLowerCase()), MathHelper.wrapAngleTo180_float(yaw)));
 
             if (mc.theWorld != null && mc.theWorld.blockExists(x, y, z))
             {
                 Chunk chunk = this.mc.theWorld.getChunkFromBlockCoords(x, z);
                 left.add(String.format("lc: %d b: %s bl: %d sl: %d rl: %d",
                   chunk.getTopFilledSegment() + 15,
-                  chunk.getBiomeGenForWorldCoords(x & 15, z & 15, mc.theWorld.getWorldChunkManager()).biomeName,
+                  translateBiome(chunk.getBiomeGenForWorldCoords(x & 15, z & 15, mc.theWorld.getWorldChunkManager()).biomeName),
                   chunk.getSavedLightValue(EnumSkyBlock.Block, x & 15, y, z & 15),
                   chunk.getSavedLightValue(EnumSkyBlock.Sky, x & 15, y, z & 15),
                   chunk.getBlockLightValue(x & 15, y, z & 15, 0)));
@@ -682,13 +682,13 @@ public class GuiIngameForge extends GuiIngame
             left.add(String.format("ws: %.3f, fs: %.3f, g: %b, fl: %d", mc.thePlayer.capabilities.getWalkSpeed(), mc.thePlayer.capabilities.getFlySpeed(), mc.thePlayer.onGround, mc.theWorld.getHeightValue(x, z)));
             if (mc.entityRenderer != null && mc.entityRenderer.isShaderActive())
             {
-                left.add(String.format("shader: %s", mc.entityRenderer.getShaderGroup().getShaderGroupName()));
+                left.add(I18n.format("adv.debug.shader", mc.entityRenderer.getShaderGroup().getShaderGroupName()));
             }
 
             right.add(null);
             for (String brand : FMLCommonHandler.instance().getBrandings(false))
             {
-                right.add(brand);
+                right.add(translateBrandings(brand));
             }
             GL11.glPopMatrix();
             mc.mcProfiler.endSection();
@@ -716,6 +716,37 @@ public class GuiIngameForge extends GuiIngame
 
         mc.mcProfiler.endSection();
         post(TEXT);
+    }
+
+    public static String addDeclension(String translate)
+    {
+        String s = "";
+        if (childModsSize % 10 == 1) s = translate[0];
+        if (childModsSize % 10 >= 2 && childModsSize % 10 <= 4) s = translate[1];
+        if (childModsSize % 10 >= 5 || childModsSize % 10 == 0 || (childModsSize >= 11 && childModsSize <= 14)) s = translate[2];
+        return s;
+    }
+
+    public static String translateBrandings(String s)
+    {
+        if (s.contains("loaded") || s.contains("загружен")) { // very dumb check, but it works :/
+            int modCount = cpw.mods.fml.common.Loader.instance().getModList().size();
+            int aModCount = cpw.mods.fml.common.Loader.instance().getActiveModList().size();
+            String params[] = {
+                I18n.format("adv.fml.format.mod.1", modCount, aModCount),
+                I18n.format("adv.fml.format.mod.2", modCount, aModCount),
+                I18n.format("adv.fml.format.mod.3", modCount, aModCount)
+            };
+            s = addDeclension(params);
+        } else if (s.contains("Optifine")) s = s.replace("OptiFine_", "").replace("U", "Ultra").replace("_", " ");
+        return s;
+    }
+
+    public static String translateBiome(String biomeName)
+    {
+        String biomeTrimmed = org.apache.commons.lang3.text.WordUtils.uncapitalize(biomeName.replaceAll("\\s", ""));
+        String biomeTranslated = I18n.format("adv.biome." + biomeTrimmed);
+        return (biomeTranslated.equals("adv.biome." + biomeTrimmed)) ? biomeName : biomeTranslated;
     }
 
     protected void renderRecordOverlay(int width, int height, float partialTicks)

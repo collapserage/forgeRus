@@ -62,9 +62,9 @@ public class ModMetadata
 
     public String getChildModCountString()
     {
-        string params[] = {
-                net.minecraft.client.resources.I18n.format("adv.fml.format.child.1", childMods.size())
-                net.minecraft.client.resources.I18n.format("adv.fml.format.child.2", childMods.size())
+        String params[] = {
+                net.minecraft.client.resources.I18n.format("adv.fml.format.child.1", childMods.size()),
+                net.minecraft.client.resources.I18n.format("adv.fml.format.child.2", childMods.size()),
                 net.minecraft.client.resources.I18n.format("adv.fml.format.child.3", childMods.size())
         };
         return net.minecraftforge.client.GuiIngameForge.addDeclension(params);
