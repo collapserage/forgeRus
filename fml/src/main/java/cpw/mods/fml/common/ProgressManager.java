@@ -108,8 +108,8 @@ public class ProgressManager
 
         public String getTitle()
         {
-            String capitalized = org.apache.commons.lang3.text.WordUtils.capitalize(title);
-            return net.minecraft.client.resources.I18n.format("adv.loader.push." + Character.toLowerCase(capitalized.charAt(0)) + capitalized.substring(1).replaceAll("\\s", ""));
+            String titleNew = "adv.loader.push." + org.apache.commons.lang3.StringUtils.uncapitalize(org.apache.commons.lang3.text.WordUtils.capitalize(title)).replaceAll("\\s", "");
+            return net.minecraftforge.client.GuiIngameForge.checkTranslation(titleNew, title);
         }
 
         public int getSteps()
@@ -124,8 +124,8 @@ public class ProgressManager
 
         public String getMessage()
         {
-            String capitalized = org.apache.commons.lang3.text.WordUtils.capitalize(message);
-            return net.minecraft.client.resources.I18n.format("adv.loader.push." + Character.toLowerCase(capitalized.charAt(0)) + capitalized.substring(1).replaceAll("\\s", ""));
+            String messageNew = "adv.loader." + org.apache.commons.lang3.StringUtils.uncapitalize(org.apache.commons.lang3.text.WordUtils.capitalize(message)).replaceAll("\\s", "");
+            return net.minecraftforge.client.GuiIngameForge.checkTranslation(messageNew, message);
         }
 
         public void timeEachStep()

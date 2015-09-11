@@ -727,6 +727,11 @@ public class GuiIngameForge extends GuiIngame
         return s;
     }
 
+    public static String checkTranslation(String fresh, String original)
+    {
+        return (I18n.format(fresh).equals(fresh)) ? original : I18n.format(fresh);
+    }
+
     public static String translateBrandings(String s)
     {
         if (s.contains("loaded") || s.contains("загружен")) { // very dumb check, but it works :/
@@ -745,8 +750,7 @@ public class GuiIngameForge extends GuiIngame
     public static String translateBiome(String biomeName)
     {
         String biomeTrimmed = org.apache.commons.lang3.text.WordUtils.uncapitalize(biomeName.replaceAll("\\s", ""));
-        String biomeTranslated = I18n.format("adv.biome." + biomeTrimmed);
-        return (biomeTranslated.equals("adv.biome." + biomeTrimmed)) ? biomeName : biomeTranslated;
+        return checkTranslation("adv.biome." + biomeTrimmed, biomeName);
     }
 
     protected void renderRecordOverlay(int width, int height, float partialTicks)
