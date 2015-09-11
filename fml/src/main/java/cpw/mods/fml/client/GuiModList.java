@@ -97,8 +97,8 @@ public class GuiModList extends GuiScreen
         }
         listWidth=Math.min(listWidth, 150);
         this.buttonList.add(new GuiButton(6, this.width / 2 - 75, this.height - 38, I18n.format("gui.done")));
-        configModButton = new GuiButton(20, 10, this.height - 60, this.listWidth, 20, "Config");
-        disableModButton = new GuiButton(21, 10, this.height - 38, this.listWidth, 20, "Disable");
+        configModButton = new GuiButton(20, 10, this.height - 60, this.listWidth, 20, I18n.format("adv.fml.button.config"));
+        disableModButton = new GuiButton(21, 10, this.height - 38, this.listWidth, 20, I18n.format("adv.fml.button.disable"));
         this.buttonList.add(configModButton);
         this.buttonList.add(disableModButton);
         this.modList=new GuiSlotModList(this, mods, listWidth);
@@ -141,7 +141,7 @@ public class GuiModList extends GuiScreen
     public void drawScreen(int p_571_1_, int p_571_2_, float p_571_3_)
     {
         this.modList.drawScreen(p_571_1_, p_571_2_, p_571_3_);
-        this.drawCenteredString(this.fontRendererObj, "Mod List", this.width / 2, 16, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, I18n.format("adv.fml.modList.title"), this.width / 2, 16, 0xFFFFFF);
         int offset = this.listWidth  + 20;
         if (selectedMod != null) {
             GL11.glEnable(GL11.GL_BLEND);
@@ -212,17 +212,19 @@ public class GuiModList extends GuiScreen
                 this.fontRendererObj.drawStringWithShadow(selectedMod.getMetadata().name, offset, shifty, 0xFFFFFF);
                 shifty += 12;
 
-                shifty = drawLine(String.format("Version: %s (%s)", selectedMod.getDisplayVersion(), selectedMod.getVersion()), offset, shifty);
-                shifty = drawLine(String.format("Mod ID: '%s' Mod State: %s", selectedMod.getModId(), Loader.instance().getModState(selectedMod)), offset, shifty);
+                shifty = drawLine(String.format(I18n.format("adv.fml.modList.version", selectedMod.getDisplayVersion()) + " (%s)", selectedMod.getVersion()), offset, shifty);
+                shifty = drawLine(I18n.format("adv.fml.modList.id", selectedMod.getModId(), Loader.instance().getModState(selectedMod).toString().equals("Available") ? I18n.format("adv.fml.modList.available") : Loader.instance().getModState(selectedMod)), offset, shifty);
                 if (!selectedMod.getMetadata().credits.isEmpty()) {
-                   shifty = drawLine(String.format("Credits: %s", selectedMod.getMetadata().credits), offset, shifty);
+                   if (selectedMod.getModId().equals("FML")) selectedMod.getMetadata().credits = I18n.format("adv.fml.mods.fml.credits"); else if (selectedMod.getModId().equals("Forge")) selectedMod.getMetadata().credits = I18n.format("adv.fml.mods.forge.credits"); else if (selectedMod.getModId().equals("mcp")) selectedMod.getMetadata().credits = I18n.format("adv.fml.mods.mcp.credits");
+                   shifty = drawLine(I18n.format("adv.fml.modList.credits", selectedMod.getMetadata().credits), offset, shifty);
                 }
-                shifty = drawLine(String.format("Authors: %s", selectedMod.getMetadata().getAuthorList()), offset, shifty);
-                shifty = drawLine(String.format("URL: %s", selectedMod.getMetadata().url), offset, shifty);
-                shifty = drawLine(selectedMod.getMetadata().childMods.isEmpty() ? "No child mods for this mod" : String.format("Child mods: %s", selectedMod.getMetadata().getChildModList()), offset, shifty);
+                shifty = drawLine(I18n.format("adv.fml.modList.authorList", selectedMod.getMetadata().getAuthorList()), offset, shifty);
+                shifty = drawLine(I18n.format("adv.fml.modList.url", selectedMod.getMetadata().url), offset, shifty);
+                shifty = drawLine(selectedMod.getMetadata().childMods.isEmpty() ? I18n.format("adv.fml.modList.noChild") : I18n.format("adv.fml.modList.child", selectedMod.getMetadata().getChildModList()), offset, shifty);
                 int rightSide = this.width - offset - 20;
                 if (rightSide > 20)
                 {
+                    if (selectedMod.getModId().equals("FML")) selectedMod.getMetadata().description = I18n.format("adv.fml.mods.fml.description"); else if (selectedMod.getModId().equals("Forge")) selectedMod.getMetadata().description = I18n.format("adv.fml.mods.forge.description"); else if (selectedMod.getModId().equals("mcp")) selectedMod.getMetadata().description = I18n.format("adv.fml.mods.mcp.description");
                     this.getFontRenderer().drawSplitString(selectedMod.getMetadata().description, offset, shifty + 10, rightSide, 0xDDDDDD);
                 }
                 Disableable disableable = selectedMod.canBeDisabled();
@@ -258,10 +260,10 @@ public class GuiModList extends GuiScreen
             } else {
                 offset = ( this.listWidth + this.width ) / 2;
                 this.drawCenteredString(this.fontRendererObj, selectedMod.getName(), offset, 35, 0xFFFFFF);
-                this.drawCenteredString(this.fontRendererObj, String.format("Version: %s",selectedMod.getVersion()), offset, 45, 0xFFFFFF);
-                this.drawCenteredString(this.fontRendererObj, String.format("Mod State: %s",Loader.instance().getModState(selectedMod)), offset, 55, 0xFFFFFF);
-                this.drawCenteredString(this.fontRendererObj, "No mod information found", offset, 65, 0xDDDDDD);
-                this.drawCenteredString(this.fontRendererObj, "Ask your mod author to provide a mod mcmod.info file", offset, 75, 0xDDDDDD);
+                this.drawCenteredString(this.fontRendererObj, I18n.format("adv.fml.modList.version", selectedMod.getVersion()), offset, 45, 0xFFFFFF);
+                this.drawCenteredString(this.fontRendererObj, I18n.format("adv.fml.modList.state", Loader.instance().getModState(selectedMod).toString().equals("Available") ? I18n.format("adv.fml.modList.available") : Loader.instance().getModState(selectedMod)), offset, 55, 0xFFFFFF);
+                this.drawCenteredString(this.fontRendererObj, I18n.format("adv.fml.modList.noInfo.1"), offset, 65, 0xDDDDDD);
+                this.drawCenteredString(this.fontRendererObj, I18n.format("adv.fml.modList.noInfo.2"), offset, 75, 0xDDDDDD);
                 configModButton.visible = false;
                 disableModButton.visible = false;
             }
