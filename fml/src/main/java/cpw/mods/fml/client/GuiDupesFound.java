@@ -41,11 +41,11 @@ public class GuiDupesFound extends GuiErrorScreen
     {
         this.drawDefaultBackground();
         int offset = Math.max(85 - dupes.dupes.size() * 10, 10);
-        this.drawCenteredString(this.fontRendererObj, "Forge Mod Loader has found a problem with your minecraft installation", this.width / 2, offset, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, net.minecraft.client.resources.I18n.format("adv.fml.error.title"), this.width / 2, offset, 0xFFFFFF);
         offset+=10;
-        this.drawCenteredString(this.fontRendererObj, "You have mod sources that are duplicate within your system", this.width / 2, offset, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, net.minecraft.client.resources.I18n.format("adv.fml.error.dupesFound.1"), this.width / 2, offset, 0xFFFFFF);
         offset+=10;
-        this.drawCenteredString(this.fontRendererObj, "Mod Id : File name", this.width / 2, offset, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, net.minecraft.client.resources.I18n.format("adv.fml.error.dupesFound.2"), this.width / 2, offset, 0xFFFFFF);
         offset+=5;
         for (Entry<ModContainer, File> mc : dupes.dupes.entries())
         {
