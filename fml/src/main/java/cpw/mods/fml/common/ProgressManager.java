@@ -108,7 +108,8 @@ public class ProgressManager
 
         public String getTitle()
         {
-            return title;
+            String capitalized = org.apache.commons.lang3.text.WordUtils.capitalize(title);
+            return I18n.format("adv.loader.push." + Character.toLowerCase(capitalized.charAt(0)) + capitalized.substring(1).replaceAll("\\s", ""));
         }
 
         public int getSteps()
@@ -123,7 +124,8 @@ public class ProgressManager
 
         public String getMessage()
         {
-            return message;
+            String capitalized = org.apache.commons.lang3.text.WordUtils.capitalize(message);
+            return I18n.format("adv.loader.push." + Character.toLowerCase(capitalized.charAt(0)) + capitalized.substring(1).replaceAll("\\s", ""));
         }
 
         public void timeEachStep()
