@@ -63,6 +63,7 @@ public class ModMetadata
     public String getChildModCountString()
     {
         String params[] = {
+                childMods.size(),
                 net.minecraft.client.resources.I18n.format("adv.fml.format.child.1", childMods.size()),
                 net.minecraft.client.resources.I18n.format("adv.fml.format.child.2", childMods.size()),
                 net.minecraft.client.resources.I18n.format("adv.fml.format.child.3", childMods.size())
