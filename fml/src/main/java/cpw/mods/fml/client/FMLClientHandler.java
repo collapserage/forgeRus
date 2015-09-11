@@ -772,27 +772,27 @@ public class FMLClientHandler implements IFMLSidedHandler
             if ("FML".equals(extendedData.type) && extendedData.isCompatible)
             {
                 idx = 0;
-                tooltip = String.format("Compatible FML modded server\n%d mods present", extendedData.modData.size());
+                tooltip = String.format(net.minecraft.client.resources.I18n.format("adv.fml.serverType.fmlCompatible", extendedData.modData.size()), extendedData.modData.size());
             }
             else if ("FML".equals(extendedData.type) && !extendedData.isCompatible)
             {
                 idx = 16;
-                tooltip = String.format("Incompatible FML modded server\n%d mods present", extendedData.modData.size());
+                tooltip = net.minecraft.client.resources.I18n.format("adv.fml.serverType.fmlIncompatible", extendedData.modData.size());
             }
             else if ("BUKKIT".equals(extendedData.type))
             {
                 idx = 32;
-                tooltip = String.format("Bukkit modded server");
+                tooltip = net.minecraft.client.resources.I18n.format("adv.fml.serverType.bukkit");
             }
             else if ("VANILLA".equals(extendedData.type))
             {
                 idx = 48;
-                tooltip = String.format("Vanilla server");
+                tooltip = net.minecraft.client.resources.I18n.format("adv.fml.serverType.vanilla");
             }
             else
             {
                 idx = 64;
-                tooltip = String.format("Unknown server data");
+                tooltip = net.minecraft.client.resources.I18n.format("adv.fml.serverType.unknown");
             }
             blocked = extendedData.isBlocked;
         }
