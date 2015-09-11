@@ -1,0 +1,49 @@
+--- ../src-base/minecraft/net/minecraft/client/gui/ServerListEntryNormal.java
++++ ../src-work/minecraft/net/minecraft/client/gui/ServerListEntryNormal.java
+@@ -69,12 +69,12 @@
+                     catch (UnknownHostException unknownhostexception)
+                     {
+                         ServerListEntryNormal.this.field_148301_e.field_78844_e = -1L;
+-                        ServerListEntryNormal.this.field_148301_e.field_78843_d = EnumChatFormatting.DARK_RED + "Can\'t resolve hostname";
++                        ServerListEntryNormal.this.field_148301_e.field_78843_d = EnumChatFormatting.DARK_RED + net.minecraft.client.resources.I18n.func_135052_a("adv.connection.error.hostname");
+                     }
+                     catch (Exception exception)
+                     {
+                         ServerListEntryNormal.this.field_148301_e.field_78844_e = -1L;
+-                        ServerListEntryNormal.this.field_148301_e.field_78843_d = EnumChatFormatting.DARK_RED + "Can\'t connect to server.";
++                        ServerListEntryNormal.this.field_148301_e.field_78843_d = EnumChatFormatting.DARK_RED + net.minecraft.client.resources.I18n.func_135052_a("adv.connection.error.other");
+                     }
+                 }
+             });
+@@ -102,7 +102,7 @@
+         if (flag3)
+         {
+             j2 = 5;
+-            s1 = flag1 ? "Client out of date!" : "Server out of date!";
++            s1 = flag1 ? net.minecraft.client.resources.I18n.func_135052_a("adv.connection.old.client") : net.minecraft.client.resources.I18n.func_135052_a("adv.connection.old.server");
+             s = this.field_148301_e.field_147412_i;
+         }
+         else if (this.field_148301_e.field_78841_f && this.field_148301_e.field_78844_e != -2L)
+@@ -134,11 +134,11 @@
+ 
+             if (this.field_148301_e.field_78844_e < 0L)
+             {
+-                s1 = "(no connection)";
++                s1 = net.minecraft.client.resources.I18n.func_135052_a("adv.connection.noConnection");
+             }
+             else
+             {
+-                s1 = this.field_148301_e.field_78844_e + "ms";
++                s1 = this.field_148301_e.field_78844_e + net.minecraft.client.resources.I18n.func_135052_a("adv.measure.millisecond");
+                 s = this.field_148301_e.field_147412_i;
+             }
+         }
+@@ -152,7 +152,7 @@
+                 j2 = 8 - j2;
+             }
+ 
+-            s1 = "Pinging...";
++            s1 = net.minecraft.client.resources.I18n.func_135052_a("adv.connection.pinging");
+         }
+ 
+         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
