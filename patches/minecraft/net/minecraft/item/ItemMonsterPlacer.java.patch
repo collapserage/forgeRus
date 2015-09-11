@@ -1,0 +1,11 @@
+--- ../src-base/minecraft/net/minecraft/item/ItemMonsterPlacer.java
++++ ../src-work/minecraft/net/minecraft/item/ItemMonsterPlacer.java
+@@ -40,7 +40,7 @@
+ 
+         if (s1 != null)
+         {
+-            s = s + " " + StatCollector.func_74838_a("entity." + s1 + ".name");
++            s = s + " " + (net.minecraft.client.Minecraft.func_71410_x().field_71474_y.field_74363_ab.equals("ru_RU") ? org.apache.commons.lang3.StringUtils.uncapitalize(StatCollector.func_74838_a("entity." + s1 + ".name")) : StatCollector.func_74838_a("entity." + s1 + ".name"));
+         }
+ 
+         return s;

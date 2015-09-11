@@ -1,0 +1,21 @@
+--- ../src-base/minecraft/net/minecraft/client/resources/DefaultResourcePack.java
++++ ../src-work/minecraft/net/minecraft/client/resources/DefaultResourcePack.java
+@@ -76,17 +76,13 @@
+     {
+         try
+         {
+-            FileInputStream fileinputstream = new FileInputStream((File)this.field_152781_b.get("pack.mcmeta"));
++            InputStream fileinputstream = Side.class.getResourceAsStream("/assets/rus/pack.mcmeta");
+             return AbstractResourcePack.func_110596_a(p_135058_1_, fileinputstream, p_135058_2_);
+         }
+         catch (RuntimeException runtimeexception)
+         {
+             return null;
+         }
+-        catch (FileNotFoundException filenotfoundexception)
+-        {
+-            return null;
+-        }
+     }
+ 
+     public BufferedImage func_110586_a() throws IOException

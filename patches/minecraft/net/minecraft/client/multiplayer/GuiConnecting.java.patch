@@ -1,0 +1,11 @@
+--- ../src-base/minecraft/net/minecraft/client/multiplayer/GuiConnecting.java
++++ ../src-work/minecraft/net/minecraft/client/multiplayer/GuiConnecting.java
+@@ -80,7 +80,7 @@
+                     }
+ 
+                     GuiConnecting.field_146370_f.error("Couldn\'t connect to server", unknownhostexception);
+-                    GuiConnecting.this.field_146297_k.func_147108_a(new GuiDisconnected(GuiConnecting.this.field_146374_i, "connect.failed", new ChatComponentTranslation("disconnect.genericReason", new Object[] {"Unknown host"})));
++                    GuiConnecting.this.field_146297_k.func_147108_a(new GuiDisconnected(GuiConnecting.this.field_146374_i, "connect.failed", new ChatComponentTranslation("disconnect.genericReason", new Object[] {I18n.func_135052_a("adv.connection.error.unknownHost")})));
+                 }
+                 catch (Exception exception)
+                 {

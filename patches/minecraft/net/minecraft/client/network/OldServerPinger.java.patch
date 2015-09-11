@@ -1,0 +1,20 @@
+--- ../src-base/minecraft/net/minecraft/client/network/OldServerPinger.java
++++ ../src-work/minecraft/net/minecraft/client/network/OldServerPinger.java
+@@ -59,7 +59,7 @@
+         ServerAddress serveraddress = ServerAddress.func_78860_a(p_147224_1_.field_78845_b);
+         final NetworkManager networkmanager = NetworkManager.func_150726_a(InetAddress.getByName(serveraddress.func_78861_a()), serveraddress.func_78864_b());
+         this.field_147229_c.add(networkmanager);
+-        p_147224_1_.field_78843_d = "Pinging...";
++        p_147224_1_.field_78843_d = net.minecraft.client.resources.I18n.func_135052_a("adv.connection.pinging");
+         p_147224_1_.field_78844_e = -1L;
+         p_147224_1_.field_147412_i = null;
+         networkmanager.func_150719_a(new INetHandlerStatusClient()
+@@ -164,7 +164,7 @@
+                 if (!this.field_147403_d)
+                 {
+                     OldServerPinger.field_147228_b.error("Can\'t ping " + p_147224_1_.field_78845_b + ": " + p_147231_1_.func_150260_c());
+-                    p_147224_1_.field_78843_d = EnumChatFormatting.DARK_RED + "Can\'t connect to server.";
++                    p_147224_1_.field_78843_d = EnumChatFormatting.DARK_RED + net.minecraft.client.resources.I18n.func_135052_a("adv.connection.error.other");
+                     p_147224_1_.field_78846_c = "";
+                     OldServerPinger.this.func_147225_b(p_147224_1_);
+                 }

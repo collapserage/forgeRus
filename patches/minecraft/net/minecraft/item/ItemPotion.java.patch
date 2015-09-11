@@ -1,0 +1,11 @@
+--- ../src-base/minecraft/net/minecraft/item/ItemPotion.java
++++ ../src-work/minecraft/net/minecraft/item/ItemPotion.java
+@@ -256,7 +256,7 @@
+             {
+                 s1 = ((PotionEffect)list.get(0)).func_76453_d();
+                 s1 = s1 + ".postfix";
+-                return s + StatCollector.func_74838_a(s1).trim();
++                return s + ((net.minecraft.client.Minecraft.func_71410_x().field_71474_y.field_74363_ab.equals("ru_RU") && func_77831_g(p_77653_1_.func_77960_j())) ? StatCollector.func_74838_a(s1).toLowerCase().trim() : StatCollector.func_74838_a(s1).trim());
+             }
+             else
+             {
