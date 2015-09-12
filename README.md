@@ -1,14 +1,14 @@
-Русификатор Minecraft Forge
+#Русификатор Minecraft Forge
 
-Скачать: http://minecraft.collapsed.space/
+Скачать: http://minecraft.collapsed.space/  
 Форум: http://rubukkit.org/threads/.43139/
 
-Инструкция по установке
+##Инструкция по установке
 
-export BUILD_NUMBER=1492 _(Linux) или_ set BUILD_NUMBER=1492 _(Windows)_
-git init
-git clone -b 1.7.10 --single-branch --recursive https://github.com/collapserage/forgeRus.git
-cd forgeRus
-gradle setupForge
-gradle ciWriteBuildNumber
-gradle build
+1. export BUILD_NUMBER=1492 *(Linux) или* set BUILD_NUMBER=1492 *(Windows)*  
+2. git init  
+3. git clone -b 1.7.10 --single-branch --recursive https://github.com/collapserage/forgeRus.git  
+4. cd forgeRus  
+5. gradle setupForge  
+6. gradle ciWriteBuildNumber  
+7. gradle build
