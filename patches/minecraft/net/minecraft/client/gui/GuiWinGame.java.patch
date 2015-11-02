@@ -1,0 +1,20 @@
+--- ../src-base/minecraft/net/minecraft/client/gui/GuiWinGame.java
++++ ../src-work/minecraft/net/minecraft/client/gui/GuiWinGame.java
+@@ -71,7 +71,7 @@
+                 String s = "";
+                 String s1 = "" + EnumChatFormatting.WHITE + EnumChatFormatting.OBFUSCATED + EnumChatFormatting.GREEN + EnumChatFormatting.AQUA;
+                 short short1 = 274;
+-                BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(this.field_146297_k.func_110442_L().func_110536_a(new ResourceLocation("texts/end.txt")).func_110527_b(), Charsets.UTF_8));
++                BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(this.field_146297_k.func_110442_L().func_110536_a(new ResourceLocation(net.minecraft.client.Minecraft.func_71410_x().field_71474_y.field_74363_ab.equals("ru_RU") ? "rus:end.txt" : "texts/end.txt")).func_110527_b(), Charsets.UTF_8));
+                 Random random = new Random(8124371L);
+                 int i;
+ 
+@@ -96,7 +96,7 @@
+                     this.field_146582_i.add("");
+                 }
+ 
+-                bufferedreader = new BufferedReader(new InputStreamReader(this.field_146297_k.func_110442_L().func_110536_a(new ResourceLocation("texts/credits.txt")).func_110527_b(), Charsets.UTF_8));
++                bufferedreader = new BufferedReader(new InputStreamReader(this.field_146297_k.func_110442_L().func_110536_a(new ResourceLocation(net.minecraft.client.Minecraft.func_71410_x().field_71474_y.field_74363_ab.equals("ru_RU") ? "rus:credits.txt" : "texts/credits.txt")).func_110527_b(), Charsets.UTF_8));
+ 
+                 while ((s = bufferedreader.readLine()) != null)
+                 {

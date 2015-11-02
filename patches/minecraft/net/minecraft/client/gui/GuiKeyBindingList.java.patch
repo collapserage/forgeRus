@@ -1,0 +1,11 @@
+--- ../src-base/minecraft/net/minecraft/client/gui/GuiKeyBindingList.java
++++ ../src-work/minecraft/net/minecraft/client/gui/GuiKeyBindingList.java
+@@ -129,7 +129,7 @@
+             this.field_148281_e.func_146112_a(GuiKeyBindingList.this.field_148189_l, p_180790_6_, p_180790_7_);
+             this.field_148280_d.field_146128_h = p_180790_2_ + 105;
+             this.field_148280_d.field_146129_i = p_180790_3_;
+-            this.field_148280_d.field_146126_j = GameSettings.func_74298_c(this.field_148282_b.func_151463_i());
++            this.field_148280_d.field_146126_j = I18n.func_135052_a(org.apache.commons.lang3.StringUtils.replaceEach(GameSettings.func_74298_c(this.field_148282_b.func_151463_i()), new String[]{"LCONTROL", "LSHIFT", "LMENU", "LMETA", "LBRACKET", "RCONTROL", "RSHIFT", "RMENU", "RMETA", "RBRACKET", I18n.func_135052_a("key.mouseButton", new Object[]{1}), I18n.func_135052_a("key.mouseButton", new Object[]{2}), I18n.func_135052_a("key.mouseButton", new Object[]{3}), "SPACE", "NONE", "SLASH", "SYSRQ", "SCROLL", "PAUSE", "GRAVE", "MINUS", "EQUALS", "BACKSLASH", "BACK", "CAPITAL", "SEMICOLON", "APOSTROPHE", "RETURN", "COMMA", "PERIOD", "UP", "DOWN", "LEFT", "RIGHT", "PRIOR", "NEXT", "DIVIDE", "MULTIPLY", "SUBTRACT", "ADD", "DECIMAL"}, new String[]{"adv.key.left.ctrl", "adv.key.left.shift", "adv.key.left.alt", "adv.key.left.meta", "adv.key.left.bracket", "adv.key.right.ctrl", "adv.key.right.shift", "adv.key.right.alt", "adv.key.right.meta", "adv.key.right.bracket", "adv.key.mouse.left", "adv.key.mouse.right", "adv.key.mouse.middle", "adv.key.space", "adv.key.none", "adv.key.slash", "adv.key.prtScr", "adv.key.scrollLock", "adv.key.pauseBreak", "adv.key.tilda", "adv.key.minus", "adv.key.equals", "adv.key.backslash", "adv.key.backspace", "adv.key.capsLock", "adv.key.semicolon", "adv.key.apostrophe", "adv.key.enter", "adv.key.comma", "adv.key.period", "adv.key.up", "adv.key.down", "adv.key.left", "adv.key.right", "adv.key.pageUp", "adv.key.pageDown", "adv.key.divide", "adv.key.multiply", "adv.key.subtract", "adv.key.add", "adv.key.decimal"})).toUpperCase();
+             boolean flag2 = false;
+ 
+             if (this.field_148282_b.func_151463_i() != 0)

@@ -1,0 +1,11 @@
+--- ../src-base/minecraft/net/minecraft/client/gui/GuiOptions.java
++++ ../src-work/minecraft/net/minecraft/client/gui/GuiOptions.java
+@@ -79,7 +79,7 @@
+         }
+ 
+         this.field_146292_n.add(new GuiButton(110, this.field_146294_l / 2 - 155, this.field_146295_m / 6 + 48 - 6, 150, 20, I18n.func_135052_a("options.skinCustomisation", new Object[0])));
+-        this.field_146292_n.add(new GuiButton(8675309, this.field_146294_l / 2 + 5, this.field_146295_m / 6 + 48 - 6, 150, 20, "Super Secret Settings...")
++        this.field_146292_n.add(new GuiButton(8675309, this.field_146294_l / 2 + 5, this.field_146295_m / 6 + 48 - 6, 150, 20, I18n.func_135052_a("adv.other.shaders"))
+         {
+             private static final String __OBFID = "CL_00000701";
+             public void func_146113_a(SoundHandler p_146113_1_)

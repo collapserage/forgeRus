@@ -1,5 +1,14 @@
 --- ../src-base/minecraft/net/minecraft/client/resources/Locale.java
 +++ ../src-work/minecraft/net/minecraft/client/resources/Locale.java
+@@ -56,7 +56,7 @@
+ 
+     public boolean func_135025_a()
+     {
+-        return this.field_135029_d;
++        return false;
+     }
+ 
+     private void func_135024_b()
 @@ -107,6 +107,8 @@
  
      private void func_135021_a(InputStream p_135021_1_) throws IOException

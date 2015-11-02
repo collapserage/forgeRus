@@ -143,6 +143,15 @@
              }
  
              this.field_147374_l += 20;
+@@ -890,7 +920,7 @@
+                 {
+                     if (this.field_147367_d.func_71264_H() && this.field_147369_b.func_70005_c_().equals(this.field_147367_d.func_71214_G()))
+                     {
+-                        this.field_147369_b.field_71135_a.func_147360_c("You have died. Game over, man, it\'s game over!");
++                        this.field_147369_b.field_71135_a.func_147360_c(net.minecraft.client.resources.I18n.func_135052_a("adv.other.hardcoreDeath"));
+                         this.field_147367_d.func_71272_O();
+                     }
+                     else
 @@ -907,7 +937,7 @@
                          return;
                      }

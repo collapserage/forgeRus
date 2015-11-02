@@ -1,5 +1,32 @@
 --- ../src-base/minecraft/net/minecraft/client/settings/GameSettings.java
 +++ ../src-work/minecraft/net/minecraft/client/settings/GameSettings.java
+@@ -219,7 +219,7 @@
+         this.field_74318_M = EnumDifficulty.NORMAL;
+         this.field_74332_R = "";
+         this.field_74334_X = 70.0F;
+-        this.field_74363_ab = "en_US";
++        this.field_74363_ab = "ru_RU";
+         this.field_151455_aw = false;
+         this.field_74317_L = p_i46326_1_;
+         this.field_74354_ai = new File(p_i46326_2_, "options.txt");
+@@ -299,7 +299,7 @@
+         this.field_74318_M = EnumDifficulty.NORMAL;
+         this.field_74332_R = "";
+         this.field_74334_X = 70.0F;
+-        this.field_74363_ab = "en_US";
++        this.field_74363_ab = "ru_RU";
+         this.field_151455_aw = false;
+     }
+ 
+@@ -638,7 +638,7 @@
+         {
+             float f1 = this.func_74296_a(p_74297_1_);
+             float f = p_74297_1_.func_148266_c(f1);
+-            return p_74297_1_ == GameSettings.Options.SENSITIVITY ? (f == 0.0F ? s + I18n.func_135052_a("options.sensitivity.min", new Object[0]) : (f == 1.0F ? s + I18n.func_135052_a("options.sensitivity.max", new Object[0]) : s + (int)(f * 200.0F) + "%")) : (p_74297_1_ == GameSettings.Options.FOV ? (f1 == 70.0F ? s + I18n.func_135052_a("options.fov.min", new Object[0]) : (f1 == 110.0F ? s + I18n.func_135052_a("options.fov.max", new Object[0]) : s + (int)f1)) : (p_74297_1_ == GameSettings.Options.FRAMERATE_LIMIT ? (f1 == p_74297_1_.field_148272_O ? s + I18n.func_135052_a("options.framerateLimit.max", new Object[0]) : s + (int)f1 + " fps") : (p_74297_1_ == GameSettings.Options.RENDER_CLOUDS ? (f1 == p_74297_1_.field_148271_N ? s + I18n.func_135052_a("options.cloudHeight.min", new Object[0]) : s + ((int)f1 + 128)) : (p_74297_1_ == GameSettings.Options.GAMMA ? (f == 0.0F ? s + I18n.func_135052_a("options.gamma.min", new Object[0]) : (f == 1.0F ? s + I18n.func_135052_a("options.gamma.max", new Object[0]) : s + "+" + (int)(f * 100.0F) + "%")) : (p_74297_1_ == GameSettings.Options.SATURATION ? s + (int)(f * 400.0F) + "%" : (p_74297_1_ == GameSettings.Options.CHAT_OPACITY ? s + (int)(f * 90.0F + 10.0F) + "%" : (p_74297_1_ == GameSettings.Options.CHAT_HEIGHT_UNFOCUSED ? s + GuiNewChat.func_146243_b(f) + "px" : (p_74297_1_ == GameSettings.Options.CHAT_HEIGHT_FOCUSED ? s + GuiNewChat.func_146243_b(f) + "px" : (p_74297_1_ == GameSettings.Options.CHAT_WIDTH ? s + GuiNewChat.func_146233_a(f) + "px" : (p_74297_1_ == GameSettings.Options.RENDER_DISTANCE ? s + (int)f1 + " chunks" : (p_74297_1_ == GameSettings.Options.MIPMAP_LEVELS ? (f1 == 0.0F ? s + I18n.func_135052_a("options.off", new Object[0]) : s + (int)f1) : (p_74297_1_ == GameSettings.Options.STREAM_FPS ? s + TwitchStream.func_152948_a(f) + " fps" : (p_74297_1_ == GameSettings.Options.STREAM_KBPS ? s + TwitchStream.func_152946_b(f) + " Kbps" : (p_74297_1_ == GameSettings.Options.STREAM_BYTES_PER_PIXEL ? s + String.format("%.3f bpp", new Object[] {Float.valueOf(TwitchStream.func_152947_c(f))}): (f == 0.0F ? s + I18n.func_135052_a("options.off", new Object[0]) : s + (int)(f * 100.0F) + "%")))))))))))))));
++            return p_74297_1_ == GameSettings.Options.SENSITIVITY ? (f == 0.0F ? s + I18n.func_135052_a("options.sensitivity.min", new Object[0]) : (f == 1.0F ? s + I18n.func_135052_a("options.sensitivity.max", new Object[0]) : s + (int)(f * 200.0F) + "%")) : (p_74297_1_ == GameSettings.Options.FOV ? (f1 == 70.0F ? s + I18n.func_135052_a("options.fov.min", new Object[0]) : (f1 == 110.0F ? s + I18n.func_135052_a("options.fov.max", new Object[0]) : s + (int)f1)) : (p_74297_1_ == GameSettings.Options.FRAMERATE_LIMIT ? (f1 == p_74297_1_.field_148272_O ? s + I18n.func_135052_a("options.framerateLimit.max", new Object[0]) : s + (int)f1 + " fps") : (p_74297_1_ == GameSettings.Options.RENDER_CLOUDS ? (f1 == p_74297_1_.field_148271_N ? s + I18n.func_135052_a("options.cloudHeight.min", new Object[0]) : s + ((int)f1 + 128)) : (p_74297_1_ == GameSettings.Options.GAMMA ? (f == 0.0F ? s + I18n.func_135052_a("options.gamma.min", new Object[0]) : (f == 1.0F ? s + I18n.func_135052_a("options.gamma.max", new Object[0]) : s + "+" + (int)(f * 100.0F) + "%")) : (p_74297_1_ == GameSettings.Options.SATURATION ? s + (int)(f * 400.0F) + "%" : (p_74297_1_ == GameSettings.Options.CHAT_OPACITY ? s + (int)(f * 90.0F + 10.0F) + "%" : (p_74297_1_ == GameSettings.Options.CHAT_HEIGHT_UNFOCUSED ? s + GuiNewChat.func_146243_b(f) + "px" : (p_74297_1_ == GameSettings.Options.CHAT_HEIGHT_FOCUSED ? s + GuiNewChat.func_146243_b(f) + "px" : (p_74297_1_ == GameSettings.Options.CHAT_WIDTH ? s + GuiNewChat.func_146233_a(f) + "px" : (p_74297_1_ == GameSettings.Options.RENDER_DISTANCE ? s + (int)f1 + " " + I18n.func_135052_a("adv.other.chunks") : (p_74297_1_ == GameSettings.Options.MIPMAP_LEVELS ? (f1 == 0.0F ? s + I18n.func_135052_a("options.off", new Object[0]) : s + (int)f1) : (p_74297_1_ == GameSettings.Options.STREAM_FPS ? s + TwitchStream.func_152948_a(f) + " fps" : (p_74297_1_ == GameSettings.Options.STREAM_KBPS ? s + TwitchStream.func_152946_b(f) + " Kbps" : (p_74297_1_ == GameSettings.Options.STREAM_BYTES_PER_PIXEL ? s + String.format("%.3f bpp", new Object[] {Float.valueOf(TwitchStream.func_152947_c(f))}): (f == 0.0F ? s + I18n.func_135052_a("options.off", new Object[0]) : s + (int)(f * 100.0F) + "%")))))))))))))));
+         }
+         else if (p_74297_1_.func_74382_b())
+         {
 @@ -1067,6 +1067,7 @@
  
      public void func_74303_b()

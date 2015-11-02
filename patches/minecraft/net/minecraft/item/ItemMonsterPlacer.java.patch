@@ -1,6 +1,6 @@
 --- ../src-base/minecraft/net/minecraft/item/ItemMonsterPlacer.java
 +++ ../src-work/minecraft/net/minecraft/item/ItemMonsterPlacer.java
-@@ -39,7 +39,7 @@
+@@ -39,11 +39,11 @@
      public String func_77653_i(ItemStack p_77653_1_)
      {
          String s = ("" + StatCollector.func_74838_a(this.func_77658_a() + ".name")).trim();
@@ -9,6 +9,11 @@
  
          if (s1 != null)
          {
+-            s = s + " " + StatCollector.func_74838_a("entity." + s1 + ".name");
++            s = s + " " + (net.minecraft.client.Minecraft.func_71410_x().field_71474_y.field_74363_ab.equals("ru_RU") ? org.apache.commons.lang3.StringUtils.uncapitalize(StatCollector.func_74838_a("entity." + s1 + ".name")) : StatCollector.func_74838_a("entity." + s1 + ".name"));
+         }
+ 
+         return s;
 @@ -52,7 +52,7 @@
      @SideOnly(Side.CLIENT)
      public int func_82790_a(ItemStack p_82790_1_, int p_82790_2_)

@@ -9,3 +9,12 @@
                      GuiConnecting.this.field_146371_g.func_179290_a(new C00PacketLoginStart(GuiConnecting.this.field_146297_k.func_110432_I().func_148256_e()));
                  }
                  catch (UnknownHostException unknownhostexception)
+@@ -80,7 +80,7 @@
+                     }
+ 
+                     GuiConnecting.field_146370_f.error("Couldn\'t connect to server", unknownhostexception);
+-                    GuiConnecting.this.field_146297_k.func_147108_a(new GuiDisconnected(GuiConnecting.this.field_146374_i, "connect.failed", new ChatComponentTranslation("disconnect.genericReason", new Object[] {"Unknown host"})));
++                    GuiConnecting.this.field_146297_k.func_147108_a(new GuiDisconnected(GuiConnecting.this.field_146374_i, "connect.failed", new ChatComponentTranslation("disconnect.genericReason", new Object[] {I18n.func_135052_a("adv.connection.error.unknownHost")})));
+                 }
+                 catch (Exception exception)
+                 {

@@ -1,5 +1,34 @@
 --- ../src-base/minecraft/net/minecraft/client/gui/GuiMainMenu.java
 +++ ../src-work/minecraft/net/minecraft/client/gui/GuiMainMenu.java
+@@ -145,23 +145,23 @@
+ 
+         if (calendar.get(2) + 1 == 11 && calendar.get(5) == 9)
+         {
+-            this.field_73975_c = "Happy birthday, ez!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.ez");
+         }
+         else if (calendar.get(2) + 1 == 6 && calendar.get(5) == 1)
+         {
+-            this.field_73975_c = "Happy birthday, Notch!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.notch");
+         }
+         else if (calendar.get(2) + 1 == 12 && calendar.get(5) == 24)
+         {
+-            this.field_73975_c = "Merry X-mas!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.xmas");
+         }
+         else if (calendar.get(2) + 1 == 1 && calendar.get(5) == 1)
+         {
+-            this.field_73975_c = "Happy new year!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.newYear");
+         }
+         else if (calendar.get(2) + 1 == 10 && calendar.get(5) == 31)
+         {
+-            this.field_73975_c = "OOoooOOOoooo! Spooky!";
++            this.field_73975_c = I18n.func_135052_a("adv.splash.halloween");
+         }
+ 
+         boolean flag = true;
 @@ -198,6 +198,11 @@
          this.field_146292_n.add(new GuiButton(1, this.field_146294_l / 2 - 100, p_73969_1_, I18n.func_135052_a("menu.singleplayer", new Object[0])));
          this.field_146292_n.add(new GuiButton(2, this.field_146294_l / 2 - 100, p_73969_1_ + p_73969_2_ * 1, I18n.func_135052_a("menu.multiplayer", new Object[0])));
@@ -24,21 +53,23 @@
          if (p_146284_1_.field_146127_k == 11)
          {
              this.field_146297_k.func_71371_a("Demo_World", "Demo_World", DemoWorldServer.field_73071_a);
-@@ -492,7 +502,16 @@
+@@ -492,8 +502,17 @@
              s = s + " Demo";
          }
  
 -        this.func_73731_b(this.field_146289_q, s, 2, this.field_146295_m - 10, -1);
+-        String s1 = "Copyright Mojang AB. Do not distribute!";
 +        java.util.List<String> brandings = com.google.common.collect.Lists.reverse(net.minecraftforge.fml.common.FMLCommonHandler.instance().getBrandings(true));
 +        for (int i = 0; i < brandings.size(); i++)
 +        {
-+            String brd = brandings.get(i);
++            String brd = net.minecraftforge.common.TranslationHelper.translateBrandings(brandings.get(i));
 +            if (!com.google.common.base.Strings.isNullOrEmpty(brd))
 +            {
 +                this.func_73731_b(this.field_146289_q, brd, 2, this.field_146295_m - ( 10 + i * (this.field_146289_q.field_78288_b + 1)), 16777215);
 +            }
 +        }
 +        net.minecraftforge.client.ForgeHooksClient.renderMainMenu(this, this.field_146289_q, this.field_146294_l, this.field_146295_m);
-         String s1 = "Copyright Mojang AB. Do not distribute!";
++        String s1 = I18n.func_135052_a("adv.other.mojang");
          this.func_73731_b(this.field_146289_q, s1, this.field_146294_l - this.field_146289_q.func_78256_a(s1) - 2, this.field_146295_m - 10, -1);
  
+         if (this.field_92025_p != null && this.field_92025_p.length() > 0)

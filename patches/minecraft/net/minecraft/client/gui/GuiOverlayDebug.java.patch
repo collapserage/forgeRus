@@ -1,11 +1,78 @@
 --- ../src-base/minecraft/net/minecraft/client/gui/GuiOverlayDebug.java
 +++ ../src-work/minecraft/net/minecraft/client/gui/GuiOverlayDebug.java
-@@ -170,6 +170,9 @@
+@@ -102,7 +102,7 @@
+ 
+         if (this.func_175236_d())
+         {
+-            return Lists.newArrayList(new String[] {"Minecraft 1.8 (" + this.field_175242_a.func_175600_c() + "/" + ClientBrandRetriever.getClientModName() + ")", this.field_175242_a.field_71426_K, this.field_175242_a.field_71438_f.func_72735_c(), this.field_175242_a.field_71438_f.func_72723_d(), "P: " + this.field_175242_a.field_71452_i.func_78869_b() + ". T: " + this.field_175242_a.field_71441_e.func_72981_t(), this.field_175242_a.field_71441_e.func_72827_u(), "", String.format("Chunk-relative: %d %d %d", new Object[]{Integer.valueOf(blockpos.func_177958_n() & 15), Integer.valueOf(blockpos.func_177956_o() & 15), Integer.valueOf(blockpos.func_177952_p() & 15)})});
++            return Lists.newArrayList(new String[] {"Minecraft 1.8 (" + this.field_175242_a.func_175600_c() + "/" + ClientBrandRetriever.getClientModName() + ")", this.field_175242_a.field_71426_K, this.field_175242_a.field_71438_f.func_72735_c(), this.field_175242_a.field_71438_f.func_72723_d(), "P: " + this.field_175242_a.field_71452_i.func_78869_b() + ". T: " + this.field_175242_a.field_71441_e.func_72981_t(), this.field_175242_a.field_71441_e.func_72827_u(), "", net.minecraft.client.resources.I18n.func_135052_a("adv.debug.chunkRelative", new Object[]{Integer.valueOf(blockpos.func_177958_n() & 15), Integer.valueOf(blockpos.func_177956_o() & 15), Integer.valueOf(blockpos.func_177952_p() & 15)})});
+         }
+         else
+         {
+@@ -113,25 +113,25 @@
+             switch (GuiOverlayDebug.SwitchEnumFacing.field_178907_a[enumfacing.ordinal()])
+             {
+                 case 1:
+-                    s = "Towards negative Z";
++                    s = net.minecraft.client.resources.I18n.func_135052_a("adv.debug.facing.negativeZ");
+                     break;
+                 case 2:
+-                    s = "Towards positive Z";
++                    s = net.minecraft.client.resources.I18n.func_135052_a("adv.debug.facing.positiveZ");
+                     break;
+                 case 3:
+-                    s = "Towards negative X";
++                    s = net.minecraft.client.resources.I18n.func_135052_a("adv.debug.facing.negativeX");
+                     break;
+                 case 4:
+-                    s = "Towards positive X";
++                    s = net.minecraft.client.resources.I18n.func_135052_a("adv.debug.facing.positiveX");
+             }
+ 
+-            ArrayList arraylist = Lists.newArrayList(new String[] {"Minecraft 1.8 (" + this.field_175242_a.func_175600_c() + "/" + ClientBrandRetriever.getClientModName() + ")", this.field_175242_a.field_71426_K, this.field_175242_a.field_71438_f.func_72735_c(), this.field_175242_a.field_71438_f.func_72723_d(), "P: " + this.field_175242_a.field_71452_i.func_78869_b() + ". T: " + this.field_175242_a.field_71441_e.func_72981_t(), this.field_175242_a.field_71441_e.func_72827_u(), "", String.format("XYZ: %.3f / %.5f / %.3f", new Object[]{Double.valueOf(this.field_175242_a.func_175606_aa().field_70165_t), Double.valueOf(this.field_175242_a.func_175606_aa().func_174813_aQ().field_72338_b), Double.valueOf(this.field_175242_a.func_175606_aa().field_70161_v)}), String.format("Block: %d %d %d", new Object[]{Integer.valueOf(blockpos.func_177958_n()), Integer.valueOf(blockpos.func_177956_o()), Integer.valueOf(blockpos.func_177952_p())}), String.format("Chunk: %d %d %d in %d %d %d", new Object[]{Integer.valueOf(blockpos.func_177958_n() & 15), Integer.valueOf(blockpos.func_177956_o() & 15), Integer.valueOf(blockpos.func_177952_p() & 15), Integer.valueOf(blockpos.func_177958_n() >> 4), Integer.valueOf(blockpos.func_177956_o() >> 4), Integer.valueOf(blockpos.func_177952_p() >> 4)}), String.format("Facing: %s (%s) (%.1f / %.1f)", new Object[]{enumfacing, s, Float.valueOf(MathHelper.func_76142_g(entity.field_70177_z)), Float.valueOf(MathHelper.func_76142_g(entity.field_70125_A))})});
++            ArrayList arraylist = Lists.newArrayList(new String[] {"Minecraft 1.8 (" + this.field_175242_a.func_175600_c() + "/" + ClientBrandRetriever.getClientModName() + ")", this.field_175242_a.field_71426_K, this.field_175242_a.field_71438_f.func_72735_c(), this.field_175242_a.field_71438_f.func_72723_d(), "P: " + this.field_175242_a.field_71452_i.func_78869_b() + ". T: " + this.field_175242_a.field_71441_e.func_72981_t(), this.field_175242_a.field_71441_e.func_72827_u(), "", String.format("XYZ: %.3f / %.5f / %.3f", new Object[]{Double.valueOf(this.field_175242_a.func_175606_aa().field_70165_t), Double.valueOf(this.field_175242_a.func_175606_aa().func_174813_aQ().field_72338_b), Double.valueOf(this.field_175242_a.func_175606_aa().field_70161_v)}), net.minecraft.client.resources.I18n.func_135052_a("adv.debug.block", new Object[]{Integer.valueOf(blockpos.func_177958_n()), Integer.valueOf(blockpos.func_177956_o()), Integer.valueOf(blockpos.func_177952_p())}), net.minecraft.client.resources.I18n.func_135052_a("adv.debug.chunk", new Object[]{Integer.valueOf(blockpos.func_177958_n() & 15), Integer.valueOf(blockpos.func_177956_o() & 15), Integer.valueOf(blockpos.func_177952_p() & 15), Integer.valueOf(blockpos.func_177958_n() >> 4), Integer.valueOf(blockpos.func_177956_o() >> 4), Integer.valueOf(blockpos.func_177952_p() >> 4)}), net.minecraft.client.resources.I18n.func_135052_a("adv.debug.facing", new Object[]{net.minecraft.client.resources.I18n.func_135052_a("adv.direction." + enumfacing), s, String.format("%.1f", Float.valueOf(MathHelper.func_76142_g(entity.field_70177_z))), String.format("%.2f", Float.valueOf(MathHelper.func_76142_g(entity.field_70125_A)))})});
+ 
+             if (this.field_175242_a.field_71441_e != null && this.field_175242_a.field_71441_e.func_175667_e(blockpos))
+             {
+                 Chunk chunk = this.field_175242_a.field_71441_e.func_175726_f(blockpos);
+-                arraylist.add("Biome: " + chunk.func_177411_a(blockpos, this.field_175242_a.field_71441_e.func_72959_q()).field_76791_y);
+-                arraylist.add("Light: " + chunk.func_177443_a(blockpos, 0) + " (" + chunk.func_177413_a(EnumSkyBlock.SKY, blockpos) + " sky, " + chunk.func_177413_a(EnumSkyBlock.BLOCK, blockpos) + " block)");
++                arraylist.add(net.minecraft.client.resources.I18n.func_135052_a("adv.debug.biome", net.minecraftforge.common.TranslationHelper.translateBiome(chunk.func_177411_a(blockpos, this.field_175242_a.field_71441_e.func_72959_q()).field_76791_y)));
++                arraylist.add(net.minecraft.client.resources.I18n.func_135052_a("adv.debug.light", new Object[]{chunk.func_177443_a(blockpos, 0), chunk.func_177413_a(EnumSkyBlock.SKY, blockpos), chunk.func_177413_a(EnumSkyBlock.BLOCK, blockpos)}));
+                 DifficultyInstance difficultyinstance = this.field_175242_a.field_71441_e.func_175649_E(blockpos);
+ 
+                 if (this.field_175242_a.func_71387_A() && this.field_175242_a.func_71401_C() != null)
+@@ -144,18 +144,18 @@
+                     }
+                 }
+ 
+-                arraylist.add(String.format("Local Difficulty: %.2f (Day %d)", new Object[] {Float.valueOf(difficultyinstance.func_180168_b()), Long.valueOf(this.field_175242_a.field_71441_e.func_72820_D() / 24000L)}));
++                arraylist.add(net.minecraft.client.resources.I18n.func_135052_a("adv.debug.localDifficulty", new Object[]{String.format("%.2f", Float.valueOf(difficultyinstance.func_180168_b())), Long.valueOf(this.field_175242_a.field_71441_e.func_72820_D() / 24000L)}));
+             }
+ 
+             if (this.field_175242_a.field_71460_t != null && this.field_175242_a.field_71460_t.func_147702_a())
+             {
+-                arraylist.add("Shader: " + this.field_175242_a.field_71460_t.func_147706_e().func_148022_b());
++                arraylist.add(net.minecraft.client.resources.I18n.func_135052_a("adv.debug.shader", field_175242_a.field_71460_t.func_147706_e().func_148022_b()));
+             }
+ 
+             if (this.field_175242_a.field_71476_x != null && this.field_175242_a.field_71476_x.field_72313_a == MovingObjectPosition.MovingObjectType.BLOCK && this.field_175242_a.field_71476_x.func_178782_a() != null)
+             {
+                 BlockPos blockpos1 = this.field_175242_a.field_71476_x.func_178782_a();
+-                arraylist.add(String.format("Looking at: %d %d %d", new Object[] {Integer.valueOf(blockpos1.func_177958_n()), Integer.valueOf(blockpos1.func_177956_o()), Integer.valueOf(blockpos1.func_177952_p())}));
++                arraylist.add(net.minecraft.client.resources.I18n.func_135052_a("adv.debug.lookingAt", new Object[] {Integer.valueOf(blockpos1.func_177958_n()), Integer.valueOf(blockpos1.func_177956_o()), Integer.valueOf(blockpos1.func_177952_p())}));
+             }
+ 
+             return arraylist;
+@@ -168,8 +168,11 @@
+         long j = Runtime.getRuntime().totalMemory();
+         long k = Runtime.getRuntime().freeMemory();
          long l = j - k;
-         ArrayList arraylist = Lists.newArrayList(new String[] {String.format("Java: %s %dbit", new Object[]{System.getProperty("java.version"), Integer.valueOf(this.field_175242_a.func_147111_S() ? 64 : 32)}), String.format("Mem: % 2d%% %03d/%03dMB", new Object[]{Long.valueOf(l * 100L / i), Long.valueOf(func_175240_a(l)), Long.valueOf(func_175240_a(i))}), String.format("Allocated: % 2d%% %03dMB", new Object[]{Long.valueOf(j * 100L / i), Long.valueOf(func_175240_a(j))}), "", String.format("Display: %dx%d (%s)", new Object[]{Integer.valueOf(Display.getWidth()), Integer.valueOf(Display.getHeight()), GL11.glGetString(GL11.GL_VENDOR)}), GL11.glGetString(GL11.GL_RENDERER), GL11.glGetString(GL11.GL_VERSION)});
+-        ArrayList arraylist = Lists.newArrayList(new String[] {String.format("Java: %s %dbit", new Object[]{System.getProperty("java.version"), Integer.valueOf(this.field_175242_a.func_147111_S() ? 64 : 32)}), String.format("Mem: % 2d%% %03d/%03dMB", new Object[]{Long.valueOf(l * 100L / i), Long.valueOf(func_175240_a(l)), Long.valueOf(func_175240_a(i))}), String.format("Allocated: % 2d%% %03dMB", new Object[]{Long.valueOf(j * 100L / i), Long.valueOf(func_175240_a(j))}), "", String.format("Display: %dx%d (%s)", new Object[]{Integer.valueOf(Display.getWidth()), Integer.valueOf(Display.getHeight()), GL11.glGetString(GL11.GL_VENDOR)}), GL11.glGetString(GL11.GL_RENDERER), GL11.glGetString(GL11.GL_VERSION)});
++        ArrayList arraylist = Lists.newArrayList(new String[] {String.format("Java: %s %dbit", new Object[]{System.getProperty("java.version"), Integer.valueOf(this.field_175242_a.func_147111_S() ? 64 : 32)}), net.minecraft.client.resources.I18n.func_135052_a("adv.debug.memory", new Object[]{Long.valueOf(l * 100L / i), Long.valueOf(func_175240_a(l)), Long.valueOf(func_175240_a(i))}), net.minecraft.client.resources.I18n.func_135052_a("adv.debug.allocated", new Object[]{Long.valueOf(j * 100L / i), Long.valueOf(func_175240_a(j))}), "", net.minecraft.client.resources.I18n.func_135052_a("adv.debug.display", new Object[]{Integer.valueOf(Display.getWidth()), Integer.valueOf(Display.getHeight()), GL11.glGetString(GL11.GL_VENDOR)}), GL11.glGetString(GL11.GL_RENDERER), GL11.glGetString(GL11.GL_VERSION)});
  
 +        arraylist.add("");
-+        arraylist.addAll(net.minecraftforge.fml.common.FMLCommonHandler.instance().getBrandings(false));
++        java.util.List<String> brandings = net.minecraftforge.fml.common.FMLCommonHandler.instance().getBrandings(false); for (int z = 0; z < brandings.size(); z++) arraylist.add(net.minecraftforge.common.TranslationHelper.translateBrandings(brandings.get(z)));
 +
          if (this.func_175236_d())
          {

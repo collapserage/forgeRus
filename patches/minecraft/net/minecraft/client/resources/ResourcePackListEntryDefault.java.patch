@@ -1,0 +1,11 @@
+--- ../src-base/minecraft/net/minecraft/client/resources/ResourcePackListEntryDefault.java
++++ ../src-work/minecraft/net/minecraft/client/resources/ResourcePackListEntryDefault.java
+@@ -47,7 +47,7 @@
+ 
+             if (packmetadatasection != null)
+             {
+-                return packmetadatasection.func_152805_a().func_150254_d();
++                return net.minecraft.client.resources.I18n.func_135052_a("adv.resourcePack.default.description");
+             }
+         }
+         catch (JsonParseException jsonparseexception)
