@@ -473,6 +473,8 @@ public class Loader
      */
     public void loadMods()
     {
+        net.minecraftforge.fml.common.registry.LanguageRegistry.instance().loadLanguagesFor(new net.minecraftforge.fml.common.FMLContainer(), Side.CLIENT);
+        net.minecraft.client.Minecraft.getMinecraft().refreshResources(); // fix for loading languages from forge.jar early enough to translate progress bar and mod loading errors
         progressBar = ProgressManager.push("Loading", 7);
         progressBar.step("Constructing Mods");
         initializeLoader();

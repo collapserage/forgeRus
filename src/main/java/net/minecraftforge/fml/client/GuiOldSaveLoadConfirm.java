@@ -36,10 +36,10 @@ public class GuiOldSaveLoadConfirm extends GuiYesNo implements GuiYesNoCallback 
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         this.drawDefaultBackground();
-        this.drawCenteredString(this.fontRendererObj, String.format("The world %s contains pre-update modding data", saveName), this.width / 2, 50, 16777215);
-        this.drawCenteredString(this.fontRendererObj, String.format("There may be problems updating it to this version"), this.width / 2, 70, 16777215);
-        this.drawCenteredString(this.fontRendererObj, String.format("FML will save a zip to %s", zip.getName()), this.width / 2, 90, 16777215);
-        this.drawCenteredString(this.fontRendererObj, String.format("Do you wish to continue loading?"), this.width / 2, 110, 16777215);
+        this.drawCenteredString(this.fontRendererObj, net.minecraft.client.resources.I18n.format("adv.fml.error.oldSave.1", saveName), this.width / 2, 50, 16777215);
+        this.drawCenteredString(this.fontRendererObj, net.minecraft.client.resources.I18n.format("adv.fml.error.oldSave.2"), this.width / 2, 70, 16777215);
+        this.drawCenteredString(this.fontRendererObj, net.minecraft.client.resources.I18n.format("adv.fml.error.oldSave.3", zip.getName()), this.width / 2, 90, 16777215);
+        this.drawCenteredString(this.fontRendererObj, net.minecraft.client.resources.I18n.format("adv.fml.error.oldSave.4"), this.width / 2, 110, 16777215);
         int k;
 
         for (k = 0; k < this.buttonList.size(); ++k)

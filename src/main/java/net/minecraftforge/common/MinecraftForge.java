@@ -169,6 +169,6 @@ public class MinecraftForge
 
    public static String getBrandingVersion()
    {
-       return "Minecraft Forge "+ ForgeVersion.getVersion();
+       return "Forge "+ ForgeVersion.getVersion();
    }
 }

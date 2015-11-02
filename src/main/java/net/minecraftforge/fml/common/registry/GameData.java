@@ -586,11 +586,11 @@ public class GameData {
 
         if (!defaulted.isEmpty())
         {
-            String text = "Forge Mod Loader detected missing blocks/items.\n\n" +
-                    "There are "+defaulted.size()+" missing blocks and items in this save.\n" +
-                    "If you continue the missing blocks/items will get removed.\n" +
-                    "A world backup will be automatically created in your saves directory.\n\n" +
-                    "Missing Blocks/Items:\n";
+            String text = net.minecraft.client.resources.I18n.format("adv.fml.error.missingBlocks.1") + "\n\n" +
+                    net.minecraft.client.resources.I18n.format("adv.fml.error.missingBlocks.2", defaulted.size()) + "\n" +
+                    net.minecraft.client.resources.I18n.format("adv.fml.error.missingBlocks.3") + "\n" +
+                    net.minecraft.client.resources.I18n.format("adv.fml.error.missingBlocks.4") + "\n\n" +
+                    net.minecraft.client.resources.I18n.format("adv.fml.error.missingBlocks.5") + "\n";
 
             for (String s : defaulted) text += s + "\n";
 

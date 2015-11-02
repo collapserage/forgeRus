@@ -47,9 +47,9 @@ public class GuiBackupFailed extends GuiScreen
     {
         this.drawDefaultBackground();
         int offset = Math.max(85 - 2 * 10, 10);
-        this.drawCenteredString(this.fontRendererObj, String.format("There was an error saving the archive %s", zipName.getName()), this.width / 2, offset, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, I18n.format("adv.fml.error.backup.1", zipName.getName()), this.width / 2, offset, 0xFFFFFF);
         offset += 10;
-        this.drawCenteredString(this.fontRendererObj, String.format("Please fix the problem and try again"), this.width / 2, offset, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, I18n.format("adv.fml.error.backup.2"), this.width / 2, offset, 0xFFFFFF);
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 }

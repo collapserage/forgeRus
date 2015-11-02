@@ -81,13 +81,13 @@ public class GuiSlotModList extends GuiScrollingList
         {
             this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(name, listWidth - 10), this.left + 3 , var3 + 2, 0xFF2222);
             this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(version, listWidth - 10), this.left + 3 , var3 + 12, 0xFF2222);
-            this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth("DISABLED", listWidth - 10), this.left + 3 , var3 + 22, 0xFF2222);
+            this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(net.minecraft.client.resources.I18n.format("adv.fml.modList.disabled"), listWidth - 10), this.left + 3 , var3 + 22, 0xFF2222);
         }
         else
         {
             this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(name, listWidth - 10), this.left + 3 , var3 + 2, 0xFFFFFF);
             this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(version, listWidth - 10), this.left + 3 , var3 + 12, 0xCCCCCC);
-            this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(mc.getMetadata() !=null ? mc.getMetadata().getChildModCountString() : "Metadata not found", listWidth - 10), this.left + 3 , var3 + 22, 0xCCCCCC);
+            this.parent.getFontRenderer().drawString(this.parent.getFontRenderer().trimStringToWidth(mc.getMetadata() !=null ? mc.getMetadata().getChildModCountString() : net.minecraft.client.resources.I18n.format("adv.fml.modList.metadataNotFound"), listWidth - 10), this.left + 3 , var3 + 22, 0xCCCCCC);
         }
     }
 

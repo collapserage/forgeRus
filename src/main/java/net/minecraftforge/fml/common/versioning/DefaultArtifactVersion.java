@@ -85,13 +85,13 @@ public class DefaultArtifactVersion implements ArtifactVersion
     @Override
     public String getVersionString()
     {
-        return comparableVersion == null ? "unknown" : comparableVersion.toString();
+        return comparableVersion == null ? net.minecraft.client.resources.I18n.format("adv.fml.format.version.unknown") : comparableVersion.toString();
     }
 
     @Override
     public String getRangeString()
     {
-        return range == null ? "any" : range.toString();
+        return range == null ? net.minecraft.client.resources.I18n.format("adv.fml.format.version.any") : range.toString();
     }
     @Override
     public String toString()
