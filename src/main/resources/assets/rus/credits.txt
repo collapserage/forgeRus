@@ -1,0 +1,69 @@
+[C]§f===============
+[C]§eАвторы Minecraft
+[C]§f===============
+
+§7Создатель:
+§f         Markus Persson
+
+§7Игровой дизайн, программирование и графика:
+§f         Markus Persson
+§f         Jens Bergensten
+§f         Nathan Adams
+
+§7Программирование:
+§f         Erik Broes
+
+§7Музыка и звук:
+§f         Daniel Rosenfeld
+
+§7Игровые изображения и картины:
+§f         Kristoffer Zetterstrand
+
+§7Рассказ в конце игры:
+§f         Julian Gough
+
+§7Разработка сайта:
+§f         Tobias Möllstam
+§f         Daniel Frisk
+§f         Leonard Axelsson
+§f         Jens Bergensten
+§f         Markus Persson
+
+§7Логотип и рекламная продукция:
+§f         Markus Toivonen
+
+§7Бизнес и управление:
+§f         Carl Manneh
+§f         Daniel Kaplan
+
+§7Работа с общественностью:
+§f         Lydia Winters
+
+§7Бухгалтерия и статистика:
+§f         Patrick Geuder
+
+§7Дополнительное программирование:
+§f         Paul Spooner
+§f         Ryan 'Scaevolus' Hitchman
+§f         Elliot 'Hippoplatimus' Segal
+
+§7Разработчики Mo' Creatures (лошади и т.д.):
+§f         John Olarte (DrZhark)
+§f         Kent Christian Jensen
+§f         Dan Roque
+
+§7Окончательный перевод:
+§f         collapse
+
+§7Используемые технологии:
+§f         Java от Oracle
+§f         LWJGL от многих талантливых людей
+§f         "3d Sound System" от Paul Lamb
+§f         JOrbis от JCraft
+
+
+
+
+
+
+§f"Через двадцать лет вы будете больше сожалеть о несовершённых делах, чем о совершённых. Так сбросьте все оковы. Выйдите из спокойной гавани. Ловите пассаты в свои паруса. Исследуйте. Мечтайте. Открывайте." §7- Автор неизвестен
