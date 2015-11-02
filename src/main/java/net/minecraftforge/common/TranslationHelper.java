@@ -1,7 +1,7 @@
 package net.minecraftforge.common;
 
 import net.minecraft.client.resources.I18n;
-import net.minecraftforge.fml.common.Loader;
+import cpw.mods.fml.common.Loader;
 import org.apache.commons.lang3.text.WordUtils;
 
 public class TranslationHelper
