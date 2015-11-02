@@ -67,7 +67,7 @@ public class ModMetadata
                 net.minecraft.client.resources.I18n.format("adv.fml.format.child.2", childMods.size()),
                 net.minecraft.client.resources.I18n.format("adv.fml.format.child.3", childMods.size())
         };
-        return net.minecraftforge.client.GuiIngameForge.addDeclension(childMods.size(), params);
+        return net.minecraftforge.common.TranslationHelper.addDeclension(childMods.size(), params);
     }
 
     public String getAuthorList()

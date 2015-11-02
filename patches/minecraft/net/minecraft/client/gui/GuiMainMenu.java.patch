@@ -51,7 +51,7 @@
          for (int i = 0; i < brandings.size(); i++)
          {
 -            String brd = brandings.get(i);
-+            String brd = net.minecraftforge.client.GuiIngameForge.translateBrandings(brandings.get(i));
++            String brd = net.minecraftforge.common.TranslationHelper.translateBrandings(brandings.get(i));
              if (!Strings.isNullOrEmpty(brd))
              {
                  this.func_73731_b(this.field_146289_q, brd, 2, this.field_146295_m - ( 10 + i * (this.field_146289_q.field_78288_b + 1)), 16777215);

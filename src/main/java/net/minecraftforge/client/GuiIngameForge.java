@@ -669,7 +669,7 @@ public class GuiIngameForge extends GuiIngame
                 Chunk chunk = this.mc.theWorld.getChunkFromBlockCoords(x, z);
                 left.add(String.format("lc: %d b: %s bl: %d sl: %d rl: %d",
                   chunk.getTopFilledSegment() + 15,
-                  translateBiome(chunk.getBiomeGenForWorldCoords(x & 15, z & 15, mc.theWorld.getWorldChunkManager()).biomeName),
+                  net.minecraftforge.common.TranslationHelper.translateBiome(chunk.getBiomeGenForWorldCoords(x & 15, z & 15, mc.theWorld.getWorldChunkManager()).biomeName),
                   chunk.getSavedLightValue(EnumSkyBlock.Block, x & 15, y, z & 15),
                   chunk.getSavedLightValue(EnumSkyBlock.Sky, x & 15, y, z & 15),
                   chunk.getBlockLightValue(x & 15, y, z & 15, 0)));
@@ -688,7 +688,7 @@ public class GuiIngameForge extends GuiIngame
             right.add(null);
             for (String brand : FMLCommonHandler.instance().getBrandings(false))
             {
-                right.add(translateBrandings(brand));
+                right.add(net.minecraftforge.common.TranslationHelper.translateBrandings(brand));
             }
             GL11.glPopMatrix();
             mc.mcProfiler.endSection();
@@ -716,41 +716,6 @@ public class GuiIngameForge extends GuiIngame
 
         mc.mcProfiler.endSection();
         post(TEXT);
-    }
-
-    public static String addDeclension(int number, String[] translate)
-    {
-        String s = "";
-        if (number % 10 == 1) s = translate[0];
-        if (number % 10 >= 2 && number % 10 <= 4) s = translate[1];
-        if (number % 10 >= 5 || number % 10 == 0 || (number >= 11 && number <= 14)) s = translate[2];
-        return s;
-    }
-
-    public static String checkTranslation(String fresh, String original)
-    {
-        return (I18n.format(fresh).equals(fresh)) ? original : I18n.format(fresh);
-    }
-
-    public static String translateBrandings(String s)
-    {
-        if (s.contains("loaded") || s.contains("загружен")) { // very dumb check, but it works :/
-            int modCount = cpw.mods.fml.common.Loader.instance().getModList().size();
-            int aModCount = cpw.mods.fml.common.Loader.instance().getActiveModList().size();
-            String params[] = {
-                I18n.format("adv.fml.format.mod.1", modCount, aModCount),
-                I18n.format("adv.fml.format.mod.2", modCount, aModCount),
-                I18n.format("adv.fml.format.mod.3", modCount, aModCount)
-            };
-            s = addDeclension(modCount, params);
-        } else if (s.contains("Optifine")) s = s.replace("OptiFine_", "").replace("U", "Ultra").replace("_", " ");
-        return s;
-    }
-
-    public static String translateBiome(String biomeName)
-    {
-        String biomeTrimmed = org.apache.commons.lang3.text.WordUtils.uncapitalize(biomeName.replaceAll("\\s", ""));
-        return checkTranslation("adv.biome." + biomeTrimmed, biomeName);
     }
 
     protected void renderRecordOverlay(int width, int height, float partialTicks)
