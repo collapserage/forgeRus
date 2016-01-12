@@ -6,12 +6,14 @@ import org.apache.commons.lang3.text.WordUtils;
 
 public class TranslationHelper
 {
-    public static String addDeclension(int number, String[] translate)
+    public static String addDeclension(int number, String translateString, Object... params)
     {
         String s = "";
-        if (number % 10 == 1) s = translate[0];
-        if (number % 10 >= 2 && number % 10 <= 4) s = translate[1];
-        if (number % 10 >= 5 || number % 10 == 0 || (number >= 11 && number <= 14)) s = translate[2];
+
+        if (number % 10 == 1) s = I18n.format(translateString + ".1", params);
+        if (number % 10 >= 2 && number % 10 <= 4) s = I18n.format(translateString + ".2", params);
+        if (number % 10 >= 5 || number % 10 == 0 || (number >= 11 && number <= 14)) s = I18n.format(translateString + ".3", params);
+
         return s;
     }
 
@@ -22,16 +24,12 @@ public class TranslationHelper
 
     public static String translateBrandings(String s)
     {
-        if (s.contains("loaded") || s.contains("загружен")) { // very dumb check, but it works :/
-            int modCount = Loader.instance().getModList().size();
-            int aModCount = Loader.instance().getActiveModList().size();
-            String params[] = {
-                I18n.format("adv.fml.format.mod.1", modCount, aModCount),
-                I18n.format("adv.fml.format.mod.2", modCount, aModCount),
-                I18n.format("adv.fml.format.mod.3", modCount, aModCount)
-            };
-            s = addDeclension(modCount, params);
-        } else if (s.contains("Optifine")) s = s.replace("OptiFine_", "").replace("U", "Ultra").replace("_", " ");
+        if (s.contains("loaded") || s.contains("загружен")) // very dumb check, but it works :/
+            s = addDeclension(Loader.instance().getModList().size(), "adv.fml.format.mod", Loader.instance().getModList().size(), Loader.instance().getActiveModList().size());
+
+        if (s.contains("Optifine"))
+            s = s.replace("OptiFine_", "").replace("U", "Ultra").replace("_", " ");
+
         return s;
     }
 
